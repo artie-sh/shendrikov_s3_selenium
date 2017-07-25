@@ -12,13 +12,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BasePage {
 
     protected WebDriver driver;
+    protected String pageUrl;
+    protected String pageTitle;
+    protected WebDriverWait wait;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
         this.driver.manage().window().maximize();
     }
-
-
 
     //method allowing to check for element presence and not crashing test when it's not
     public boolean isElementPresent(By locatorKey) {

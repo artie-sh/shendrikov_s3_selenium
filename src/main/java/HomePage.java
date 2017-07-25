@@ -6,26 +6,18 @@ import org.openqa.selenium.By;
 /**
  * Created by ashendri on 25.07.2017.
  */
-public class HomePage extends BasePage {
-
-    private By searchDiv = By.id("et_top_search");
-    private By searchInput = By.xpath("//input[contains(@class, 'et-search-field')]");
-
+public class HomePage extends RegularSitePage {
 
     public HomePage(WebDriver driver){
         super(driver);
+        pageUrl = "http://s3.com/";
+        pageTitle = "S3 | Home";
     }
 
-    public void getOn() {
-        driver.get("http://s3.com/");
-        assertEquals("S3 | Home", driver.getTitle());
+    public HomePage getOnPage() {
+        driver.get(pageUrl);
+        assertEquals(pageTitle, driver.getTitle());
+        return new HomePage(driver);
     }
 
-    public void searchText(String textToSearch) {
-        driver.findElement(searchDiv).click();
-        assertTrue(driver.findElement(searchInput).isDisplayed());
-        driver.findElement(searchInput).sendKeys(textToSearch);
-        driver.findElement(searchInput).sendKeys(Keys.ENTER);
-        assertEquals(String.format("Search results for \"%s\" | S3", textToSearch), driver.getTitle());
-    }
 }
