@@ -10,7 +10,7 @@ public class HomePage extends BasePage {
     }
 
     public HomePage getOn() {
-        driver.get("http://sports.williamhill.com/");
+        driver.get("http://s3.com/");
         return new HomePage(driver);
     }
 }

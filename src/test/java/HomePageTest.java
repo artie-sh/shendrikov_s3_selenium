@@ -11,10 +11,11 @@ import static org.junit.Assert.*;
 public class HomePageTest {
     @Test
     public void getOn() throws Exception {
-//        System.setProperty("webdriver.ie.driver", "C:\\DriversForSelenium2\\IEDriverServer.exe");
-        WebDriver driver = new InternetExplorerDriver();
+        WebDriver driver = new ChromeDriver();
         HomePage homePage = new HomePage(driver);
         homePage = homePage.getOn();
+        homePage.driver.quit();
+
     }
 
 }
