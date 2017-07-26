@@ -6,34 +6,25 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-import java.io.IOException;
-
-import static org.junit.Assert.*;
-
 /**
  * Created by ashendri on 25.07.2017.
  */
 
-public class HomePageTest {
+//test suite checking the search functionality on various site pages
+public class SearchFromVariousPagesTest extends BaseTest {
 
-    private WebDriver driver;
     private String textToSearch = "financial services";
-
-    @Before
-    public void startUp() {
-        this.driver = new ChromeDriver();
-    }
 
     @Test
     public void searchFromHomePageTest() throws Exception {
-        HomePage homePage = new HomePage(this.driver);
+        HomePage homePage = new HomePage(driver);
         homePage.getOnPage();
         homePage.searchText(textToSearch);
     }
 
     @Test
     public void searchFromCareersPageTest() throws Exception {
-        HomePage homePage = new HomePage(this.driver);
+        HomePage homePage = new HomePage(driver);
         homePage.getOnPage();
         CareersPage careersPage = new CareersPage(driver);
         careersPage.getOnPage();
@@ -42,7 +33,7 @@ public class HomePageTest {
 
     @Test
     public void searchFromContactUsPageTest() throws Exception {
-        HomePage homePage = new HomePage(this.driver);
+        HomePage homePage = new HomePage(driver);
         homePage.getOnPage();
         ContactUsPage contactUsPage = new ContactUsPage(driver);
         contactUsPage.getOnPage();
@@ -51,16 +42,19 @@ public class HomePageTest {
 
     @Test
     public void searchFromAboutUsPagePageTest() throws Exception {
-        HomePage homePage = new HomePage(this.driver);
+        HomePage homePage = new HomePage(driver);
         homePage.getOnPage();
         AboutUsPage aboutUsPage = new AboutUsPage(driver);
         aboutUsPage.getOnPage();
         aboutUsPage.searchText(textToSearch);
     }
 
-    @After
-    public void tearDown() throws IOException {
-        this.driver.quit();
+    @Test
+    public void searchFromNewsAndEventsPageTest() throws Exception {
+        HomePage homePage = new HomePage(driver);
+        homePage.getOnPage();
+        NewsAndEventsPage newsAndEventsPage = new NewsAndEventsPage(driver);
+        newsAndEventsPage.getOnPage();
+        newsAndEventsPage.searchText(textToSearch);
     }
-
 }

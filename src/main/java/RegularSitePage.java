@@ -8,8 +8,7 @@ import static org.junit.Assert.assertTrue;
 
 public class RegularSitePage extends BasePage {
 
-
-
+    //elements needed to test search functionality which is present on all pages except for sign in
     private By searchInput = By.xpath("//input[contains(@class, 'et-search-field')]");
     private By searchDiv = By.id("et_top_search");
 

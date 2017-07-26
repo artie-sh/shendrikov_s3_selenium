@@ -8,9 +8,10 @@ import org.openqa.selenium.By;
  */
 public class HomePage extends RegularSitePage {
 
+    private String pageUrl = "http://s3.com/";
+
     public HomePage(WebDriver driver){
         super(driver);
-        pageUrl = "http://s3.com/";
         pageTitle = "S3 | Home";
     }
 
